@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">dndList</string>
+    <string name="mail_hint">Введите адрес электронной почты:</string>
+    <string name="pass_hint">Введите пароль:</string>
+    <string name="valid_btn">Вход</string>
+    <string name="reg_btn">Регистрация</string>
 </resources>
