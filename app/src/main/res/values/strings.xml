@@ -3,5 +3,25 @@
     <string name="mail_hint">Введите адрес электронной почты:</string>
     <string name="pass_hint">Введите пароль:</string>
     <string name="valid_btn">Вход</string>
+    <string name="reg_hint_btn">Нет аккаунта?Зарегестрируйтесь!</string>
     <string name="reg_btn">Регистрация</string>
+    <string name="forget_pass_btn">Забыли пароль?</string>
+    <string name="send_code_btn">Выслать код восстановления на почту</string>
+    <string-array name="chars">
+        <item>Дэ Бил</item>
+        <item>Э БАН</item>
+        <item>Не сдал</item>
+    </string-array>
+
+    <string-array name="race">
+        <item>Негр</item>
+        <item>негр пидарас</item>
+        <item>Г`ом</item>
+    </string-array>
+
+    <string-array name="lvl">
+        <item>1lvl</item>
+        <item>3lvl</item>
+        <item>Магистр</item>
+    </string-array>
 </resources>

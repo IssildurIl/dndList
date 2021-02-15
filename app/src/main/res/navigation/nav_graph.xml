@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authorization">
+    <fragment
+        android:id="@+id/authorization"
+        android:name="com.example.dndlist.Fragment.Authorization"
+        android:label="fragment_authorization"
+        tools:layout="@layout/fragment_authorization" >
+        <action
+            android:id="@+id/go_to_reg"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/go_to_chars"
+            app:destination="@id/chooseCharacter" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.dndlist.Fragment.Registration"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/go_to_forgetedpass"
+            app:destination="@id/forgetPassword" />
+        <action
+            android:id="@+id/go_to_chars"
+            app:destination="@id/chooseCharacter" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseCharacter"
+        android:name="com.example.dndlist.Fragment.ChooseCharacter"
+        android:label="fragment_choose_character"
+        tools:layout="@layout/fragment_choose_character" />
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.example.dndlist.Fragment.ForgetPassword"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/go_to_authorization"
+            app:destination="@id/authorization" />
+    </fragment>
+</navigation>

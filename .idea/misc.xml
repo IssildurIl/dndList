@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/projects/dndapp/app/src/main/res/layout/activity_main.xml" value="0.13134057971014493" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/authorization.xml" value="0.18" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_authorization.xml" value="0.17" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_choose_character.xml" value="0.19429347826086957" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_forget_password.xml" value="0.19429347826086957" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_login.xml" value="0.18854166666666666" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_registration.xml" value="0.17" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/recycleviewraw.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Authorization">
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mailField"
@@ -15,7 +17,8 @@
         android:hint="@string/mail_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -34,11 +37,14 @@
         android:hint="@string/pass_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mailField">
+        app:layout_constraintTop_toBottomOf="@+id/mailField"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="260dp" />
 
@@ -64,7 +70,7 @@
         android:layout_marginStart="54dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="54dp"
-        android:text="@string/reg_btn"
+        android:text="@string/reg_hint_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valid_btn" />
