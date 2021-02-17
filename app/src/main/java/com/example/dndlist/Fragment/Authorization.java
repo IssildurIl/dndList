@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,6 +19,7 @@ import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.common.AccountPicker;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 
@@ -37,8 +36,8 @@ public class Authorization extends Fragment {
 
     /* Текстовые поля */
     private final static int email_field_id = R.id.mailFieldTxt;
-    private final static int psw_field_id = R.id.passwordField;
-    EditText email_field , psw_field;
+    private final static int psw_field_id = R.id.passwordFieldTxt;
+    TextInputEditText email_field, psw_field;
 
     public Authorization() {
 
@@ -53,10 +52,6 @@ public class Authorization extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
-        email_field = (EditText) view.findViewById(email_field_id);
-        psw_field = (EditText) view.findViewById(psw_field_id);
-
         return inflater.inflate(R.layout.fragment_authorization, container, false);
     }
 
@@ -78,11 +73,13 @@ public class Authorization extends Fragment {
 
 
     protected void login() {
+        email_field = (TextInputEditText) getView().findViewById(email_field_id);
+        psw_field = (TextInputEditText) getView().findViewById(psw_field_id);
+
         Log.d(TAG, "start login");
-        Log.d(TAG, email_field.toString());
-        //String email = email_field.getText().toString();
-        //String psw = psw_field.getText().toString();
-        //Log.d(TAG, String.format("Entered data: Email: %s,  Psw: %s", email, psw));
+        String email = email_field.getText().toString();
+        String psw = psw_field.getText().toString();
+        Log.d(TAG, String.format("Entered data: Email: %s,  Psw: %s", email, psw));
         /* TODO: После появления api добавить функционал*/
     }
 
