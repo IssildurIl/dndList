@@ -5,12 +5,15 @@
       <map>
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/authorization.xml" value="0.18" />
-        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_authorization.xml" value="0.1" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_authorization.xml" value="0.22" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_character_list.xml" value="0.18614130434782608" />
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_choose_character.xml" value="0.19429347826086957" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_create_character.xml" value="0.18614130434782608" />
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_forget_password.xml" value="0.19429347826086957" />
         <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_login.xml" value="0.18854166666666666" />
-        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_registration.xml" value="0.17" />
-        <entry key="..\:/projects/dndapp/app/src/main/res/layout/recycleviewraw.xml" value="0.1" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/fragment_registration.xml" value="0.18614130434782608" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/layout/recycleviewraw.xml" value="0.16354166666666667" />
+        <entry key="..\:/projects/dndapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2046875" />
       </map>
     </option>
   </component>

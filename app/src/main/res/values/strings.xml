@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">dndList</string>
     <string name="mail_hint">Введите адрес электронной почты:</string>
+    <string name="mail_rep_hint">Повторите адрес электронной почты:</string>
     <string name="pass_hint">Введите пароль:</string>
+    <string name="pass_rep_hint">Повторите пароль:</string>
     <string name="valid_btn">Вход</string>
+    <string name="valid_google_btn">Вход через Google</string>
     <string name="reg_hint_btn">Нет аккаунта?Зарегестрируйтесь!</string>
     <string name="reg_btn">Регистрация</string>
     <string name="forget_pass_btn">Забыли пароль?</string>
+    <string name="return_to_auth">Зарегестрированы? Войдите</string>
     <string name="send_code_btn">Выслать код восстановления на почту</string>
     <string-array name="chars">
         <item>Дэ Бил</item>
@@ -24,4 +28,6 @@
         <item>3lvl</item>
         <item>Магистр</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

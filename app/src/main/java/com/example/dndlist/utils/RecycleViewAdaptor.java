@@ -8,49 +8,61 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.dndlist.R;
+
+import java.util.ArrayList;
 
 public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.CustomViewHolder> {
 
-
-    String charName[],charRace[],charLvl[];
+    private ArrayList<ExampleItem> mExampleList;
     Context context;
+    private OnItemClickListener mListener;
 
-    public RecycleViewAdaptor(Context ct,String Name[], String Race[], String Lvl[]){
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+    public RecycleViewAdaptor(Context ct,ArrayList<ExampleItem> ExampleList){
         context=ct;
-        charName = Name;
-        charRace=Race;
-        charLvl=Lvl;
+        mExampleList=ExampleList;
     }
 
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycleviewraw,parent,false);
-        return new CustomViewHolder(view);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleviewraw, parent, false);
+        return new CustomViewHolder(v, mListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        holder.tvName.setText(charName[position]);
-        holder.tvRace.setText(charRace[position]);
-        holder.tvLvl.setText(charLvl[position]);
+        ExampleItem currentItem = mExampleList.get(position);
+        holder.tvName.setText(currentItem.getText());
+        holder.tvRace.setText(currentItem.getText1());
+        holder.tvLvl.setText(currentItem.getText2());
     }
 
     @Override
     public int getItemCount() {
-        return charName.length;
+        return mExampleList.size();
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder{
+    public static class CustomViewHolder extends RecyclerView.ViewHolder{
         TextView tvName,tvRace,tvLvl;
-        public CustomViewHolder(@NonNull View itemView) {
+        public CustomViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             tvName = itemView.findViewById(R.id.textName);
             tvRace = itemView.findViewById(R.id.textRace);
             tvLvl = itemView.findViewById(R.id.textLvl);
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) listener.onItemClick(position);
+                }
+            });
         }
     }
 }

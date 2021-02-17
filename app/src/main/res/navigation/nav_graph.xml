@@ -15,6 +15,12 @@
         <action
             android:id="@+id/go_to_chars"
             app:destination="@id/chooseCharacter" />
+        <action
+            android:id="@+id/go_to_forgetPas"
+            app:destination="@id/forgetPassword" />
+        <action
+            android:id="@+id/go_to_chars_google"
+            app:destination="@id/chooseCharacter" />
     </fragment>
     <fragment
         android:id="@+id/registration"
@@ -22,17 +28,25 @@
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
-            android:id="@+id/go_to_forgetedpass"
-            app:destination="@id/forgetPassword" />
-        <action
             android:id="@+id/go_to_chars"
             app:destination="@id/chooseCharacter" />
+        <action
+            android:id="@+id/action_registration_to_authorization2"
+            app:destination="@id/authorization" />
+
     </fragment>
     <fragment
         android:id="@+id/chooseCharacter"
         android:name="com.example.dndlist.Fragment.ChooseCharacter"
         android:label="fragment_choose_character"
-        tools:layout="@layout/fragment_choose_character" />
+        tools:layout="@layout/fragment_choose_character" >
+        <action
+            android:id="@+id/go_to_createCharacter"
+            app:destination="@id/createCharacter" />
+        <action
+            android:id="@+id/go_to_characterList"
+            app:destination="@id/characterList" />
+    </fragment>
     <fragment
         android:id="@+id/forgetPassword"
         android:name="com.example.dndlist.Fragment.ForgetPassword"
@@ -42,4 +56,14 @@
             android:id="@+id/go_to_authorization"
             app:destination="@id/authorization" />
     </fragment>
+    <fragment
+        android:id="@+id/createCharacter"
+        android:name="com.example.dndlist.Fragment.CreateCharacter"
+        android:label="fragment_create_character"
+        tools:layout="@layout/fragment_create_character" />
+    <fragment
+        android:id="@+id/characterList"
+        android:name="com.example.dndlist.Fragment.CharacterList"
+        android:label="fragment_character_list"
+        tools:layout="@layout/fragment_character_list" />
 </navigation>
