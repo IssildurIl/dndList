@@ -15,8 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dndlist.R;
-import com.example.dndlist.utils.ExampleItem;
-import com.example.dndlist.utils.RecycleViewAdaptor;
+import com.example.dndlist.utils.RecycleView.ExampleItem;
+import com.example.dndlist.utils.RecycleView.RecycleViewAdaptor;
 
 import java.util.ArrayList;
 

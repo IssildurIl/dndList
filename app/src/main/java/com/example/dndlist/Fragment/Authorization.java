@@ -25,7 +25,7 @@ import com.google.android.gms.common.AccountPicker;
 import java.io.IOException;
 
 public class Authorization extends Fragment {
-    private final static String TAG = "loginActivity";
+    private final static String TAG = "Authorization";
     /* Доступы для гугловской авторизации */
     private final static String G_PLUS_SCOPE = "oauth2:https://www.googleapis.com/auth/plus.me";
     private final static String USERINFO_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
@@ -37,7 +37,7 @@ public class Authorization extends Fragment {
 
     /* Текстовые поля */
     private final static int email_field_id = R.id.mailFieldTxt;
-    private final static int psw_field_id = R.id.passwordField;
+    private final static int psw_field_id = R.id.passwordFieldTxt;
     EditText email_field , psw_field;
 
     public Authorization() {
@@ -53,7 +53,7 @@ public class Authorization extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
+        View view = inflater.inflate(R.layout.fragment_authorization, container, false);
         email_field = (EditText) view.findViewById(email_field_id);
         psw_field = (EditText) view.findViewById(psw_field_id);
 
@@ -80,9 +80,9 @@ public class Authorization extends Fragment {
     protected void login() {
         Log.d(TAG, "start login");
         Log.d(TAG, email_field.toString());
-        //String email = email_field.getText().toString();
-        //String psw = psw_field.getText().toString();
-        //Log.d(TAG, String.format("Entered data: Email: %s,  Psw: %s", email, psw));
+        String email = email_field.getText().toString();
+        String psw = psw_field.getText().toString();
+        Log.d(TAG, String.format("Entered data: Email: %s,  Psw: %s", email, psw));
         /* TODO: После появления api добавить функционал*/
     }
 

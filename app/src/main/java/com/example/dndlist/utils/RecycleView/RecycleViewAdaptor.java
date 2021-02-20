@@ -1,4 +1,4 @@
-package com.example.dndlist.utils;
+package com.example.dndlist.utils.RecycleView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
