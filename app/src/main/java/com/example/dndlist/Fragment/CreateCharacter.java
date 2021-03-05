@@ -1,21 +1,24 @@
 package com.example.dndlist.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.dndlist.Fragment.FragmentInFragment.CharactersCharList;
 import com.example.dndlist.Fragment.FragmentInFragment.ExtraStatsCharList;
 import com.example.dndlist.Fragment.FragmentInFragment.ModificatorsCharList;
 import com.example.dndlist.Fragment.FragmentInFragment.SaveDropsCharList;
 import com.example.dndlist.R;
+import com.example.dndlist.model.Character;
 import com.example.dndlist.utils.FragmentAdaptor.FragmentAdaptor;
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,15 +27,16 @@ public class CreateCharacter extends Fragment {
     TabLayout charsAndModsTabLayout,saveAndStatTabLayout;
     ViewPager vp,vp1;
     View customFragment;
-    public CreateCharacter() {
+    EditText name, lvl, race;
 
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -103,6 +107,25 @@ public class CreateCharacter extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        NavController navController = Navigation.findNavController(view);
+
+        name = view.findViewById(R.id.textName);
+        race = view.findViewById(R.id.textRace);
+        lvl = view.findViewById(R.id.textLvl);
+
+        view.findViewById(R.id.redCharBtn).setOnClickListener(view1 ->{
+            createChar();
+            navController.navigate(R.id.go_to_chooseCharacter);
+        });
+    }
+
+    private void createChar() {
+        ChooseCharacter chooseCharacter = new ChooseCharacter();
+        chooseCharacter.CreateCustomList("Eblan","Eblanovich",3);
+//        Character character = new Character();name.getText().toString(),race.getText().toString(),Integer.parseInt(lvl.getText().toString())
+//        character.setName(name.getText().toString());
+//        character.setRace(race.getText().toString());
+//        character.setLvl(Integer.parseInt(String.valueOf(lvl)));
     }
 
 

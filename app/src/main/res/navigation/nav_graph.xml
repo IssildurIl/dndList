@@ -60,7 +60,11 @@
         android:id="@+id/createCharacter"
         android:name="com.example.dndlist.Fragment.CreateCharacter"
         android:label="fragment_create_character"
-        tools:layout="@layout/fragment_create_character" />
+        tools:layout="@layout/fragment_create_character" >
+        <action
+            android:id="@+id/go_to_chooseCharacter"
+            app:destination="@id/chooseCharacter" />
+    </fragment>
     <fragment
         android:id="@+id/characterList"
         android:name="com.example.dndlist.Fragment.CharacterList"

@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dndlist.R;
+import com.example.dndlist.model.Character;
 import com.example.dndlist.utils.RecycleView.ExampleItem;
 import com.example.dndlist.utils.RecycleView.RecycleViewAdaptor;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 public class ChooseCharacter extends Fragment {
 
     RecyclerView mRecyclerView;
-    private ArrayList<ExampleItem> mExampleList;
+    private ArrayList<Character> mExampleList;
     private RecycleViewAdaptor mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -55,8 +56,26 @@ public class ChooseCharacter extends Fragment {
         createExampleList();
         buildRecyclerView();
         NavController navController = Navigation.findNavController(view);
-        view.findViewById(R.id.fab).setOnClickListener(view1 -> navController.navigate(R.id.go_to_createCharacter));
-        mAdapter.setOnItemClickListener(position -> navController.navigate(R.id.go_to_characterList));
+        //view.findViewById(R.id.fab).setOnClickListener(view1 -> navController.navigate(R.id.go_to_createCharacter));
+        view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = 0;
+                insertItem(position);
+                position+=1;
+            }
+        });
+
+        mAdapter.setOnItemClickListener(new RecycleViewAdaptor.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+            }
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
+        });
+        //mAdapter.setOnItemClickListener(position -> navController.navigate(R.id.go_to_characterList));
     }
 
     public void buildRecyclerView() { //НЕ ТРОГАТЬ
@@ -67,8 +86,21 @@ public class ChooseCharacter extends Fragment {
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem("Vasya","gobbo","3lvl"));
-        mExampleList.add(new ExampleItem("V","g","3lvl"));
+        mExampleList.add(new Character("Vasya","gobbo",3));
+        mExampleList.add(new Character("V","g",3));
+    }
+    public void CreateCustomList(String name,String race, Integer pos){
+        mExampleList = new ArrayList<>();
+        mExampleList.add(new Character(name,race,pos));
+        mAdapter.notifyDataSetChanged();
+    }
 
+    public void insertItem(int position) {
+        mExampleList.add(position, new Character("Vasya","gobbo",3));
+        mAdapter.notifyItemInserted(position);
+    }
+    public void removeItem(int position) {
+        mExampleList.remove(position);
+        mAdapter.notifyItemRemoved(position);
     }
 }

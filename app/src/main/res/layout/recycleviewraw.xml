@@ -50,6 +50,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/delImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textLvl"
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

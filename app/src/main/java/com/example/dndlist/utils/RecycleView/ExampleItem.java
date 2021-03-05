@@ -17,6 +17,7 @@ public class ExampleItem implements Parcelable {
         raceText = in.readString();
         lvlText = in.readString();
     }
+
     public static final Creator<ExampleItem> CREATOR = new Creator<ExampleItem>() {
         @Override
         public ExampleItem createFromParcel(Parcel in) {
