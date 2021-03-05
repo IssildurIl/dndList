@@ -12,23 +12,10 @@
     <string name="return_to_auth">Зарегестрированы? Войдите</string>
     <string name="send_code_btn">Выслать код восстановления на почту</string>
     <string name="MyChars">Мои персонажи</string>
-    <string-array name="chars">
-        <item>Дэ Бил</item>
-        <item>Э БАН</item>
-        <item>Не сдал</item>
-    </string-array>
 
-    <string-array name="race">
-        <item>Негр</item>
-        <item>негр пидарас</item>
-        <item>Г`ом</item>
-    </string-array>
-
-    <string-array name="lvl">
-        <item>1lvl</item>
-        <item>3lvl</item>
-        <item>Магистр</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="achint">Доспех</string>
+    <string name="speed">Скорость</string>
+    <string name="xphint">ХP</string>
+    <string name="hphint">HP</string>
+    <string name="initiative">Инициатива</string>
 </resources>

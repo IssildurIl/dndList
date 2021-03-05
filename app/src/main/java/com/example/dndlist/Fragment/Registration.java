@@ -47,14 +47,8 @@ public class Registration extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_registration, container, false);
-        createAccount_btn = (Button) view.findViewById(createAccount_id);
-        linkLogin_btn = (Button) view.findViewById(linkLogin_id);
-
-        email_field = (EditText) view.findViewById(email_field_id);
-        email_re_field = (EditText) view.findViewById(email_re_field_id);
-        psw_field = (EditText) view.findViewById(psw_field_id);
-        psw_re_field = (EditText) view.findViewById(psw_re_field_id);
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        init(view);
+        return view;
     }
 
     @Override
@@ -77,5 +71,15 @@ public class Registration extends Fragment {
         Log.d(TAG, String.format("Entered data: Name: %s, Email: %s, Psw: %s, PswRe: %s", email, email_re, psw, psw_re));
 
         /* TODO: После появления api добавить функционал*/
+    }
+    
+    protected void init(View view){
+        createAccount_btn = (Button) view.findViewById(createAccount_id);
+        linkLogin_btn = (Button) view.findViewById(linkLogin_id);
+
+        email_field = (EditText) view.findViewById(email_field_id);
+        email_re_field = (EditText) view.findViewById(email_re_field_id);
+        psw_field = (EditText) view.findViewById(psw_field_id);
+        psw_re_field = (EditText) view.findViewById(psw_re_field_id);
     }
 }

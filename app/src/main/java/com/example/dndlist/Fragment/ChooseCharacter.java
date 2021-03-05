@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class ChooseCharacter extends Fragment {
 
-    String [] charName,charRace,charLvl;
     RecyclerView mRecyclerView;
     private ArrayList<ExampleItem> mExampleList;
     private RecycleViewAdaptor mAdapter;
@@ -42,9 +41,6 @@ public class ChooseCharacter extends Fragment {
     }
 
     public View Recycle(LayoutInflater inflater,ViewGroup container){
-        charRace = getResources().getStringArray(R.array.chars);
-        charName = getResources().getStringArray(R.array.race);
-        charLvl = getResources().getStringArray(R.array.lvl);
         View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
         mRecyclerView = (RecyclerView)view.findViewById(R.id.chars_rec);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
