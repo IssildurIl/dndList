@@ -74,6 +74,11 @@ public class ChooseCharacter extends Fragment {
             public void onDeleteClick(int position) {
                 removeItem(position);
             }
+
+            @Override
+            public void onCorrectClick(int position) {
+
+            }
         });
         //mAdapter.setOnItemClickListener(position -> navController.navigate(R.id.go_to_characterList));
     }
@@ -86,8 +91,8 @@ public class ChooseCharacter extends Fragment {
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-        mExampleList.add(new Character("Vasya","gobbo",3));
-        mExampleList.add(new Character("V","g",3));
+//        mExampleList.add(new Character("Vasya","gobbo",3));
+//        mExampleList.add(new Character("V","g",3));
     }
     public void CreateCustomList(String name,String race, Integer pos){
         mExampleList = new ArrayList<>();
@@ -96,7 +101,7 @@ public class ChooseCharacter extends Fragment {
     }
 
     public void insertItem(int position) {
-        mExampleList.add(position, new Character("Vasya","gobbo",3));
+        mExampleList.add(position, new Character());
         mAdapter.notifyItemInserted(position);
     }
     public void removeItem(int position) {
