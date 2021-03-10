@@ -1,6 +1,6 @@
 package com.example.dndlist.utils.RecycleView;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
@@ -46,6 +49,7 @@ public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+
         Character currentItem = mExampleList.get(position);
         holder.tvName.setText(currentItem.getName());
         holder.tvRace.setText(currentItem.getRace());
@@ -57,9 +61,13 @@ public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.
         return mExampleList.size();
     }
 
+
+
+
     public static class CustomViewHolder extends RecyclerView.ViewHolder{
         EditText tvName,tvRace,tvLvl;
         ImageView mDeleteImage,mCorrImg;
+
         public CustomViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             tvName = itemView.findViewById(R.id.nameText);
@@ -101,6 +109,7 @@ public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.
                     }
                 }
             });
+
         }
     }
 

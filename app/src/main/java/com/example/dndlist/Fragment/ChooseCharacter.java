@@ -4,7 +4,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,8 +29,11 @@ public class ChooseCharacter extends Fragment {
     RecyclerView mRecyclerView;
     private ArrayList<Character> mExampleList;
     private RecycleViewAdaptor mAdapter;
+    FragmentManager myFragmentManager;
     private RecyclerView.LayoutManager mLayoutManager;
-
+    final static String KEY_MSG_1 = "FRAGMENT1_MSG";
+    final static String TAG_1 = "FRAGMENT_1";
+    FragmentManager childFragMang;
     public ChooseCharacter() {
     }
 
@@ -38,6 +44,8 @@ public class ChooseCharacter extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        childFragMang =getChildFragmentManager();
         return Recycle(inflater,container);
     }
 
@@ -69,6 +77,7 @@ public class ChooseCharacter extends Fragment {
         mAdapter.setOnItemClickListener(new RecycleViewAdaptor.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                navController.navigate(R.id.go_to_createCharacter);
             }
             @Override
             public void onDeleteClick(int position) {
@@ -80,7 +89,6 @@ public class ChooseCharacter extends Fragment {
 
             }
         });
-        //mAdapter.setOnItemClickListener(position -> navController.navigate(R.id.go_to_characterList));
     }
 
     public void buildRecyclerView() { //НЕ ТРОГАТЬ
