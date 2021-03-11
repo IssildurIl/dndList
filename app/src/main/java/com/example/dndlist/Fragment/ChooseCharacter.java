@@ -1,5 +1,7 @@
 package com.example.dndlist.Fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
@@ -29,29 +32,29 @@ public class ChooseCharacter extends Fragment {
     RecyclerView mRecyclerView;
     private ArrayList<Character> mExampleList;
     private RecycleViewAdaptor mAdapter;
-    FragmentManager myFragmentManager;
     private RecyclerView.LayoutManager mLayoutManager;
-    final static String KEY_MSG_1 = "FRAGMENT1_MSG";
-    final static String TAG_1 = "FRAGMENT_1";
-    FragmentManager childFragMang;
+    public int position=0;
+    public TextView textView;
     public ChooseCharacter() {
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        childFragMang =getChildFragmentManager();
         return Recycle(inflater,container);
     }
 
     public View Recycle(LayoutInflater inflater,ViewGroup container){
         View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
         mRecyclerView = (RecyclerView)view.findViewById(R.id.chars_rec);
+        TextView textView = view.findViewById(R.id.MyCharsTV);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         RecycleViewAdaptor rva = new RecycleViewAdaptor(getContext(),mExampleList);
         mRecyclerView.setAdapter(rva);
@@ -63,12 +66,22 @@ public class ChooseCharacter extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         createExampleList();
         buildRecyclerView();
+        if(getArguments() != null) {
+            Character character = new Character();
+            String arg1Value = getArguments().getString("arg1");
+            String arg2Value = getArguments().getString("arg2");
+            Integer arg3Value = getArguments().getInt("arg3");
+            character.setName(arg1Value);
+            character.setRace(arg2Value);
+            character.setLvl(arg3Value);
+            mExampleList.add(position, character);
+            mAdapter.notifyItemInserted(position);
+        }
         NavController navController = Navigation.findNavController(view);
-        //view.findViewById(R.id.fab).setOnClickListener(view1 -> navController.navigate(R.id.go_to_createCharacter));
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = 0;
+                position = 0;
                 insertItem(position);
                 position+=1;
             }
@@ -99,21 +112,21 @@ public class ChooseCharacter extends Fragment {
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-//        mExampleList.add(new Character("Vasya","gobbo",3));
-//        mExampleList.add(new Character("V","g",3));
-    }
-    public void CreateCustomList(String name,String race, Integer pos){
-        mExampleList = new ArrayList<>();
-        mExampleList.add(new Character(name,race,pos));
-        mAdapter.notifyDataSetChanged();
     }
 
     public void insertItem(int position) {
-        mExampleList.add(position, new Character());
+        Character character = new Character();
+        mExampleList.add(position, character);
         mAdapter.notifyItemInserted(position);
     }
+    public void insertFullItem (Character character){
+        mExampleList.add(position, character);
+        mAdapter.notifyItemInserted(position);
+    }
+
     public void removeItem(int position) {
         mExampleList.remove(position);
         mAdapter.notifyItemRemoved(position);
     }
+
 }

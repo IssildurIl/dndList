@@ -24,6 +24,7 @@
             android:id="@+id/initiativeTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="220dp" />
 
@@ -44,6 +45,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/speedTxt"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="220dp" />
@@ -67,6 +69,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/hptext"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="220dp" />
@@ -91,6 +94,7 @@
             android:id="@+id/xptext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="220dp" />
 
@@ -113,6 +117,7 @@
             android:id="@+id/acTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="220dp" />
 
@@ -135,47 +140,71 @@
             android:src="@drawable/ic_baseline_save_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.98"
-            app:layout_constraintStart_toEndOf="@+id/charNameView"
+            app:layout_constraintStart_toEndOf="@+id/charNameViewHint"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/charNameView"
-            android:layout_width="0dp"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/charNameViewHint"
+            android:layout_width="308dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:hint="Name"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/charRaceView"
-            app:layout_constraintEnd_toStartOf="@+id/charLvlView"
+            app:layout_constraintBottom_toTopOf="@+id/charRaceViewHint"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/charLvlView"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/charNameView"
+                android:layout_width="308dp"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="220dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/charLvlViewHint"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:digits="0123456789"
+            android:layout_marginStart="28dp"
             android:hint="Lvl"
-            android:maxLength="2"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/charRaceView"
-            app:layout_constraintEnd_toStartOf="@+id/redCharBtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/charRaceViewHint">
 
-        <EditText
-            android:id="@+id/charRaceView"
-            android:layout_width="303dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/charLvlView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="220dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/charRaceViewHint"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:hint="Race"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charNameView" />
+            app:layout_constraintTop_toBottomOf="@+id/charNameViewHint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/charRaceView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="220dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -64,7 +64,7 @@ public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.
 
 
 
-    public static class CustomViewHolder extends RecyclerView.ViewHolder{
+    public class CustomViewHolder extends RecyclerView.ViewHolder{
         EditText tvName,tvRace,tvLvl;
         ImageView mDeleteImage,mCorrImg;
 
@@ -78,8 +78,9 @@ public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION)
+                    if (position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(position);
+                    }
                 }
             });
             mDeleteImage.setOnClickListener(v -> {

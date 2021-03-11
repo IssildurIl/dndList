@@ -1,6 +1,8 @@
 package com.example.dndlist.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -24,11 +27,11 @@ import com.google.android.material.tabs.TabLayout;
 
 
 public class CreateCharacter extends Fragment {
+    private final static String TAG = "CreateCharacter";
     TabLayout charsAndModsTabLayout,saveAndStatTabLayout;
     ViewPager vp,vp1;
     View customFragment;
     EditText name, lvl, race;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,11 @@ public class CreateCharacter extends Fragment {
 
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         customFragment= inflater.inflate(R.layout.fragment_create_character, container, false);
+
         vp = customFragment.findViewById(R.id.vp);
         vp1 = customFragment.findViewById(R.id.vp1);
         charsAndModsTabLayout = customFragment.findViewById(R.id.charsAndMods);
@@ -108,25 +110,24 @@ public class CreateCharacter extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
-
-        name = view.findViewById(R.id.textName);
-        race = view.findViewById(R.id.textRace);
-        lvl = view.findViewById(R.id.textLvl);
+        name = view.findViewById(R.id.charNameView);
+        race = view.findViewById(R.id.charRaceView);
+        lvl = view.findViewById(R.id.charLvlView);
 
         view.findViewById(R.id.redCharBtn).setOnClickListener(view1 ->{
-            createChar();
-            navController.navigate(R.id.go_to_chooseCharacter);
+            Character character = new Character();
+            character.setName(name.getText().toString());
+            character.setRace(race.getText().toString());
+            character.setLvl(Integer.parseInt(lvl.getText().toString()));
+            character.setLvl(4);
+            Bundle bundle = new Bundle();
+            bundle.putString("arg1", character.getName());
+            bundle.putString("arg2", character.getRace());
+            bundle.putInt("arg3", character.getLvl());
+
+            Log.d(TAG, String.format("Entered data: Name: %s,  race: %s", character.getName(), character.getRace()));
+            navController.navigate(R.id.go_to_chooseCharacter,bundle);
         });
     }
-
-    private void createChar() {
-        ChooseCharacter chooseCharacter = new ChooseCharacter();
-        chooseCharacter.CreateCustomList("Eblan","Eblanovich",3);
-//        Character character = new Character();name.getText().toString(),race.getText().toString(),Integer.parseInt(lvl.getText().toString())
-//        character.setName(name.getText().toString());
-//        character.setRace(race.getText().toString());
-//        character.setLvl(Integer.parseInt(String.valueOf(lvl)));
-    }
-
 
 }
