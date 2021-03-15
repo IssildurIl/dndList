@@ -114,7 +114,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/acTxt"
+            android:id="@+id/actext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/redCharBtn"
+            android:id="@+id/saveCharBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -168,7 +168,6 @@
             android:id="@+id/charLvlViewHint"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
             android:hint="Lvl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/charRaceViewHint">
@@ -178,8 +177,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
-                android:maxLength="2"
                 android:inputType="number"
+                android:maxLength="2"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="220dp" />
 
@@ -203,6 +202,14 @@
                 tools:layout_editor_absoluteY="220dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/redCharBtn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveCharBtn" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

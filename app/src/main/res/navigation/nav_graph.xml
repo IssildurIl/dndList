@@ -43,9 +43,6 @@
         <action
             android:id="@+id/go_to_createCharacter"
             app:destination="@id/createCharacter" />
-        <action
-            android:id="@+id/go_to_characterList"
-            app:destination="@id/characterList" />
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"
@@ -65,9 +62,4 @@
             android:id="@+id/go_to_chooseCharacter"
             app:destination="@id/chooseCharacter" />
     </fragment>
-    <fragment
-        android:id="@+id/characterList"
-        android:name="com.example.dndlist.Fragment.CharacterList"
-        android:label="fragment_character_list"
-        tools:layout="@layout/fragment_character_list" />
 </navigation>

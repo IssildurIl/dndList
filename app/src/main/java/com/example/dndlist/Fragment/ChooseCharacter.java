@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.dndlist.R;
@@ -32,9 +33,7 @@ public class ChooseCharacter extends Fragment {
     RecyclerView mRecyclerView;
     private ArrayList<Character> mExampleList;
     private RecycleViewAdaptor mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     public int position=0;
-    public TextView textView;
     public ChooseCharacter() {
     }
 
@@ -53,8 +52,7 @@ public class ChooseCharacter extends Fragment {
 
     public View Recycle(LayoutInflater inflater,ViewGroup container){
         View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.chars_rec);
-        TextView textView = view.findViewById(R.id.MyCharsTV);
+        mRecyclerView = view.findViewById(R.id.chars_rec);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         RecycleViewAdaptor rva = new RecycleViewAdaptor(getContext(),mExampleList);
         mRecyclerView.setAdapter(rva);
@@ -70,7 +68,7 @@ public class ChooseCharacter extends Fragment {
             Character character = new Character();
             String arg1Value = getArguments().getString("arg1");
             String arg2Value = getArguments().getString("arg2");
-            Integer arg3Value = getArguments().getInt("arg3");
+            int arg3Value = getArguments().getInt("arg3");
             character.setName(arg1Value);
             character.setRace(arg2Value);
             character.setLvl(arg3Value);
@@ -78,14 +76,7 @@ public class ChooseCharacter extends Fragment {
             mAdapter.notifyItemInserted(position);
         }
         NavController navController = Navigation.findNavController(view);
-        view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                position = 0;
-                insertItem(position);
-                position+=1;
-            }
-        });
+        view.findViewById(R.id.fab).setOnClickListener(v -> navController.navigate(R.id.go_to_createCharacter));
 
         mAdapter.setOnItemClickListener(new RecycleViewAdaptor.OnItemClickListener() {
             @Override
@@ -99,29 +90,18 @@ public class ChooseCharacter extends Fragment {
 
             @Override
             public void onCorrectClick(int position) {
-
             }
         });
     }
 
-    public void buildRecyclerView() { //НЕ ТРОГАТЬ
-        mLayoutManager = new LinearLayoutManager(getContext());
+    public void buildRecyclerView() {
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mAdapter = new RecycleViewAdaptor(getContext(),mExampleList);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-    }
-
-    public void insertItem(int position) {
-        Character character = new Character();
-        mExampleList.add(position, character);
-        mAdapter.notifyItemInserted(position);
-    }
-    public void insertFullItem (Character character){
-        mExampleList.add(position, character);
-        mAdapter.notifyItemInserted(position);
     }
 
     public void removeItem(int position) {

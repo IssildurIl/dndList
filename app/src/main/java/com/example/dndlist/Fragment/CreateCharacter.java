@@ -1,6 +1,5 @@
 package com.example.dndlist.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,8 +28,10 @@ public class CreateCharacter extends Fragment {
     private final static String TAG = "CreateCharacter";
     TabLayout charsAndModsTabLayout,saveAndStatTabLayout;
     ViewPager vp,vp1;
-    View customFragment;
-    EditText name, lvl, race;
+    View customFragment,charactersCharList,modificatorsCharList,saveDropsCharList;
+    EditText cclStr,cclDex,cclBody,cclInt,cclChar,cclWisd;
+    public static int odd = 0 ;
+    EditText name, lvl, race, hptext, actext ,initext ,speedtext,xptext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,6 @@ public class CreateCharacter extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         customFragment= inflater.inflate(R.layout.fragment_create_character, container, false);
-
         vp = customFragment.findViewById(R.id.vp);
         vp1 = customFragment.findViewById(R.id.vp1);
         charsAndModsTabLayout = customFragment.findViewById(R.id.charsAndMods);
@@ -110,24 +109,67 @@ public class CreateCharacter extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
-        name = view.findViewById(R.id.charNameView);
-        race = view.findViewById(R.id.charRaceView);
-        lvl = view.findViewById(R.id.charLvlView);
-
-        view.findViewById(R.id.redCharBtn).setOnClickListener(view1 ->{
+        iniView(view);
+        view.findViewById(R.id.saveCharBtn).setOnClickListener(view1 -> {
             Character character = new Character();
             character.setName(name.getText().toString());
-            character.setRace(race.getText().toString());
-            character.setLvl(Integer.parseInt(lvl.getText().toString()));
-            character.setLvl(4);
+
+            if (name.length() == 0) {
+                name.setError("Пустая строка");
+                return;
+            }else{
+                character.setRace(name.getText().toString());
+            }
+
+            if (race.length() == 0) {
+                race.setError("Пустая строка");
+                return;
+            }else{
+                character.setRace(race.getText().toString());
+            }
+
+            if (lvl.length() == 0) {
+                lvl.setError("Пустая строка");
+                return;
+            }else{
+                character.setLvl(Integer.parseInt(lvl.getText().toString()));
+            }
+
             Bundle bundle = new Bundle();
             bundle.putString("arg1", character.getName());
             bundle.putString("arg2", character.getRace());
             bundle.putInt("arg3", character.getLvl());
-
-            Log.d(TAG, String.format("Entered data: Name: %s,  race: %s", character.getName(), character.getRace()));
-            navController.navigate(R.id.go_to_chooseCharacter,bundle);
+            navController.navigate(R.id.go_to_chooseCharacter, bundle);
         });
+
+        view.findViewById(R.id.redCharBtn).setOnClickListener(view2 ->{
+            odd = odd+1;
+            redaction(odd % 2 == 0);
+        });
+    }
+
+    public void redaction(boolean bool){
+        name.setEnabled(bool);
+        lvl.setEnabled(bool);
+        race.setEnabled(bool);
+        hptext.setEnabled(bool);
+        actext.setEnabled(bool);
+        initext.setEnabled(bool);
+        speedtext.setEnabled(bool);
+        xptext.setEnabled(bool);
+        charsAndModsTabLayout.setEnabled(bool);
+        saveAndStatTabLayout.setEnabled(bool);
+    }
+
+    public void iniView(View view){
+        name = view.findViewById(R.id.charNameView);
+        race = view.findViewById(R.id.charRaceView);
+        lvl = view.findViewById(R.id.charLvlView);
+        hptext = view.findViewById(R.id.hptext);
+        actext = view.findViewById(R.id.actext);
+        initext = view.findViewById(R.id.initiativeTxt);
+        speedtext = view.findViewById(R.id.speedTxt);
+        xptext = view.findViewById(R.id.xptext);
     }
 
 }

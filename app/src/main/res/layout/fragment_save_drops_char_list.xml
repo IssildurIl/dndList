@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FragmentInFragment.SaveDropsCharList">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
@@ -30,7 +31,7 @@
                 android:id="@+id/strText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,7 +52,7 @@
                 android:id="@+id/dexText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +73,7 @@
                 android:id="@+id/bodyText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +127,7 @@
                 android:id="@+id/intelText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -146,7 +147,7 @@
                 android:id="@+id/charisText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -167,7 +168,7 @@
                 android:id="@+id/wisdText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:inputType="number"
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -197,5 +198,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
