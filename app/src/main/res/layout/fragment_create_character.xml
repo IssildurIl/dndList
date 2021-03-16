@@ -133,14 +133,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/goToInventory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_next"
+            app:layout_constraintEnd_toStartOf="@+id/saveCharBtn"
+            app:layout_constraintStart_toEndOf="@+id/charNameViewHint"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
             android:id="@+id/saveCharBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:src="@drawable/ic_baseline_save_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.98"
-            app:layout_constraintStart_toEndOf="@+id/charNameViewHint"
             app:layout_constraintTop_toTopOf="parent" />
 
 

@@ -28,8 +28,7 @@ public class CreateCharacter extends Fragment {
     private final static String TAG = "CreateCharacter";
     TabLayout charsAndModsTabLayout,saveAndStatTabLayout;
     ViewPager vp,vp1;
-    View customFragment,charactersCharList,modificatorsCharList,saveDropsCharList;
-    EditText cclStr,cclDex,cclBody,cclInt,cclChar,cclWisd;
+    View customFragment;
     public static int odd = 0 ;
     EditText name, lvl, race, hptext, actext ,initext ,speedtext,xptext;
 
@@ -109,32 +108,17 @@ public class CreateCharacter extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
+        view.findViewById(R.id.goToInventory).setOnClickListener(v2 -> navController.navigate(R.id.go_to_charactersInventory));
         iniView(view);
+        checkLength(name);
+        checkLength(race);
+        checkLength(lvl);
         view.findViewById(R.id.saveCharBtn).setOnClickListener(view1 -> {
             Character character = new Character();
             character.setName(name.getText().toString());
-
-            if (name.length() == 0) {
-                name.setError("Пустая строка");
+            if (name.length() == 0 || race.length() == 0 || lvl.length() == 0) {
                 return;
-            }else{
-                character.setRace(name.getText().toString());
             }
-
-            if (race.length() == 0) {
-                race.setError("Пустая строка");
-                return;
-            }else{
-                character.setRace(race.getText().toString());
-            }
-
-            if (lvl.length() == 0) {
-                lvl.setError("Пустая строка");
-                return;
-            }else{
-                character.setLvl(Integer.parseInt(lvl.getText().toString()));
-            }
-
             Bundle bundle = new Bundle();
             bundle.putString("arg1", character.getName());
             bundle.putString("arg2", character.getRace());
@@ -172,4 +156,11 @@ public class CreateCharacter extends Fragment {
         xptext = view.findViewById(R.id.xptext);
     }
 
+    public void checkLength(EditText et){
+        et.setOnFocusChangeListener((v, hasFocus) -> {
+            if (v == et && !hasFocus && et.length()==0) {
+                et.setError("Пустая строка");
+            }
+        });
+    }
 }

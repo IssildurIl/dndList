@@ -61,5 +61,13 @@
         <action
             android:id="@+id/go_to_chooseCharacter"
             app:destination="@id/chooseCharacter" />
+        <action
+            android:id="@+id/go_to_charactersInventory"
+            app:destination="@id/charactersInventory" />
     </fragment>
+    <fragment
+        android:id="@+id/charactersInventory"
+        android:name="com.example.dndlist.CharactersInventory"
+        android:label="fragment_characters_inventory"
+        tools:layout="@layout/fragment_characters_inventory" />
 </navigation>
