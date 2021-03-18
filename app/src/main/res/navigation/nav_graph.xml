@@ -45,6 +45,7 @@
     <fragment
         android:id="@+id/createCharacterAboutInfo"
         android:name="com.example.dndlist.Fragment.CreateCharacterFragments.CreateCharacterAboutInfo"
+
         android:label="CreateCharacterAboutInfo">
         <action
             android:id="@+id/action_createCharacterAboutInfo_to_characterStats"
@@ -61,4 +62,18 @@
             android:id="@+id/action_charactersMenu_to_charactersStats"
             app:destination="@id/characterStats" />
     </fragment>
+    <fragment
+        android:id="@+id/createChatacterInventory"
+        android:name="com.example.dndlist.Fragment.CreateCharacterFragments.CreateChatacterInventory"
+        android:label="fragment_create_chatacter_inventory"
+        tools:layout="@layout/fragment_create_chatacter_inventory" >
+        <action
+            android:id="@+id/action_createChatacterInventory_to_createCharactersAttactAndCasts"
+            app:destination="@id/createCharactersAttactAndCasts" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCharactersAttactAndCasts"
+        android:name="com.example.dndlist.CreateCharactersAttactAndCasts"
+        android:label="fragment_create_characters_attact_and_casts"
+        tools:layout="@layout/fragment_create_characters_attact_and_casts" />
 </navigation>
