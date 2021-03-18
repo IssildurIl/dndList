@@ -1,5 +1,6 @@
 package com.example.dndlist.Fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,23 +15,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dndlist.R;
+import com.example.dndlist.dao.CharacterDao;
 import com.example.dndlist.model.Character;
-import com.example.dndlist.utils.RecycleView.RecycleViewAdaptor;
+import com.example.dndlist.repository.DbUtil;
+import com.example.dndlist.utils.RecycleView.CharacterListAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CharactersMenu extends Fragment {
 
-    RecyclerView mRecyclerView;
-    private ArrayList<Character> mExampleList;
-    private RecycleViewAdaptor mAdapter;
-    public int position = 0;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private CharacterListAdapter characterListAdapter;
     NavController navController;
 
 
     public CharactersMenu() {
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,67 +43,42 @@ public class CharactersMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return Recycle(inflater,container);
+        return inflater.inflate(R.layout.fragment_characters_menu, container, false);
+
     }
 
-    public View Recycle(LayoutInflater inflater,ViewGroup container){
-        View view = inflater.inflate(R.layout.fragment_choose_character, container, false);
-        mRecyclerView = view.findViewById(R.id.chars_rec);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        RecycleViewAdaptor rva = new RecycleViewAdaptor(getContext(),mExampleList);
-        mRecyclerView.setAdapter(rva);
-        return view;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        createExampleList();
-        buildRecyclerView();
-        if(getArguments() != null) {
-            Character character = new Character();
-            String arg1Value = getArguments().getString("arg1");
-            String arg2Value = getArguments().getString("arg2");
-            int arg3Value = getArguments().getInt("arg3");
-            character.setName(arg1Value);
-            character.setRace(arg2Value);
-            character.setLvl(arg3Value);
-            mExampleList.add(position, character);
-            mAdapter.notifyItemInserted(position);
-        }
+
         navController = Navigation.findNavController(view);
         view.findViewById(R.id.fab).setOnClickListener(v -> navController.navigate(R.id.action_charactersMenu_to_createCharacterBasicInfo));
 
-        mAdapter.setOnItemClickListener(new RecycleViewAdaptor.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                //navController.navigate(R.id.go_to_createCharacter);
-            }
-
-            @Override
-            public void onDeleteClick(int position) {
-                removeItem(position);
-            }
-
-            @Override
-            public void onCorrectClick(int position) {
-            }
-        });
+        DbUtil.init(getContext());
+        setUpRecyclerView(view);
     }
 
-    public void buildRecyclerView() {
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        mAdapter = new RecycleViewAdaptor(getContext(),mExampleList);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-    }
-    public void createExampleList() {
-        mExampleList = new ArrayList<>();
+    private void setUpRecyclerView(View view) {
+        recyclerView = view.findViewById(R.id.charactersRecyclerView);
+        layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        new RecyclerViewSetter().execute();
     }
 
-    public void removeItem(int position) {
-        mExampleList.remove(position);
-        mAdapter.notifyItemRemoved(position);
+    private class RecyclerViewSetter extends AsyncTask<Void, Void, List<Character>> {
+
+        @Override
+        protected List<Character> doInBackground(Void... voids) {
+            CharacterDao dao = DbUtil.getInstance().characterDao();
+            return dao.getCharacter();
+        }
+
+        @Override
+        protected void onPostExecute(List<Character> characters) {
+            characterListAdapter = new CharacterListAdapter(characters, navController);
+            recyclerView.setAdapter(characterListAdapter);
+        }
     }
 
 }

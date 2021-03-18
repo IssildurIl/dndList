@@ -6,25 +6,23 @@ import android.os.Parcelable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.dndlist.utils.RecycleView.ExampleItem;
-
-import java.util.Set;
+import java.io.Serializable;
 
 import lombok.Data;
 
 @Data
 @Entity
-public class Character implements NamedEntity, Parcelable {
-  @PrimaryKey
+public class Character implements NamedEntity, Parcelable, Serializable {
+  @PrimaryKey(autoGenerate = true)
   private long id;
   private String name;
   private String charClass;
-  private int lvl;
-  private Set<Characteristic> characteristicsList;
-  private DeathSave deathSave;
-  private Dice hitDice;
-  private Set<Item> inventory;
-  private Set<Action> actions;
+  private int lvl = 1;
+  //private Set<Characteristic> characteristicsList;
+  //private DeathSave deathSave;
+  //private Dice hitDice;
+  //private Set<Item> inventory;
+  //private Set<Action> actions;
   private String race;
   private String alignment;
   private String personalTraits;
@@ -33,7 +31,8 @@ public class Character implements NamedEntity, Parcelable {
   private String flaws;
 
 
-  public Character() { }
+  public Character() {
+  }
 
   public Character(String name, String race, int lvl) {
     this.name= name;

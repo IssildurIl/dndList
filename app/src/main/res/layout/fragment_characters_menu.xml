@@ -15,7 +15,7 @@
         tools:context=".Fragment.CharactersMenu">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/chars_rec"
+            android:id="@+id/charactersRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/primaryColor"
@@ -34,7 +34,8 @@
             android:layout_marginBottom="16dp"
             android:text="@string/MyChars"
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/chars_rec"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/charactersRecyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

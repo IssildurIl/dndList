@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/etCreateCharacterAboutIdeals"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
@@ -69,13 +69,13 @@
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 android:textColorHint="@color/secondaryDarkColor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
+                app:layout_constraintBottom_toTopOf="@+id/etCreateCharacterAboutPersonalityTraits"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine2"
+                android:id="@+id/etCreateCharacterAboutPersonalityTraits"
                 android:layout_width="0dp"
 
                 android:layout_height="0dp"
@@ -87,13 +87,13 @@
                 android:hint="Черты характера"
                 android:inputType="textMultiLine"
                 android:textColorHint="@color/secondaryDarkColor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine3"
+                app:layout_constraintBottom_toTopOf="@+id/etCreateCharacterAboutBonds"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+                app:layout_constraintTop_toBottomOf="@+id/etCreateCharacterAboutIdeals" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine3"
+                android:id="@+id/etCreateCharacterAboutBonds"
                 android:layout_width="0dp"
 
                 android:layout_height="0dp"
@@ -105,13 +105,13 @@
                 android:hint="Привязанности"
                 android:inputType="textMultiLine"
                 android:textColorHint="@color/secondaryDarkColor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine4"
+                app:layout_constraintBottom_toTopOf="@+id/etCreateCharacterAboutFlaws"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+                app:layout_constraintTop_toBottomOf="@+id/etCreateCharacterAboutPersonalityTraits" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine4"
+                android:id="@+id/etCreateCharacterAboutFlaws"
                 android:layout_width="0dp"
 
                 android:layout_height="0dp"
@@ -127,13 +127,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+                app:layout_constraintTop_toBottomOf="@+id/etCreateCharacterAboutBonds" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabCreateCharacterAboutComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

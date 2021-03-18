@@ -56,7 +56,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/etCharacterName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -70,7 +70,7 @@
                 android:textColorHint="@color/secondaryDarkColor" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/etCharacterRace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -84,7 +84,7 @@
                 android:textColorHint="@color/secondaryDarkColor" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/etCharacterClass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -98,7 +98,7 @@
                 android:textColorHint="@color/secondaryDarkColor" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/etCharacterAlignment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
