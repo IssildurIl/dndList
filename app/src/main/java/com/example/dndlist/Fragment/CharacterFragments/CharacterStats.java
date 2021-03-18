@@ -1,4 +1,4 @@
-package com.example.dndlist.Fragment;
+package com.example.dndlist.Fragment.CharacterFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +26,7 @@ import com.google.android.material.textview.MaterialTextView;
 
 
 public class CharacterStats extends Fragment {
-    private final static String TAG = "CreateCharacter";
+    private final static String TAG = CharacterStats.class.getSimpleName();
     TabLayout charsAndModsTabLayout, saveAndStatTabLayout;
     ViewPager vpCharacteristicsAndMods, vpThrowsAndStats;
     MaterialTextView name, race;

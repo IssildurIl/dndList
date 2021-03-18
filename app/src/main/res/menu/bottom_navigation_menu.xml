@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<item
-        android:id="@+id/aboutCharacterFragment"
+    <item
+        android:id="@+id/characterAbout"
         android:enabled="true"
         android:title="О персонаже" />
     <item
-        android:id="@+id/characterInfoFragment"
+        android:id="@+id/characterStory"
         android:enabled="true"
-        android:title="Предыстория" /> -->
+        android:title="Предыстория" />
     <item
         android:id="@+id/characterStats"
         android:enabled="true"
         android:title="Состояние" />
-    <!--<item
-        android:id="@+id/InventoryFragment"
+    <item
+        android:id="@+id/chatacterInventory"
         android:enabled="true"
         android:title="Инвентарь" />
     <item
-        android:id="@+id/skillsFragment"
+        android:id="@+id/charactersAttactAndCasts"
         android:enabled="true"
-        android:title="Скиллы" /> -->
+        android:title="Скиллы" />
 
 </menu>

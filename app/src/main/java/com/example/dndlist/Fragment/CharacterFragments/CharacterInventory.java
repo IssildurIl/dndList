@@ -1,4 +1,4 @@
-package com.example.dndlist;
+package com.example.dndlist.Fragment.CharacterFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,8 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.dndlist.R;
 
-public class CharactersInventory extends Fragment {
+
+public class CharacterInventory extends Fragment {
+
+    public CharacterInventory() {
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,7 @@ public class CharactersInventory extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_characters_inventory, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_character_inventory, container, false);
     }
 }

@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/characterStats"
-        android:name="com.example.dndlist.Fragment.CharacterStats"
+        android:name="com.example.dndlist.Fragment.CharacterFragments.CharacterStats"
         android:label="fragment_create_character"
         tools:layout="@layout/fragment_character_stats" />
     <fragment
@@ -63,17 +63,23 @@
             app:destination="@id/characterStats" />
     </fragment>
     <fragment
-        android:id="@+id/createChatacterInventory"
-        android:name="com.example.dndlist.Fragment.CreateCharacterFragments.CreateChatacterInventory"
+        android:id="@+id/chatacterInventory"
+        android:name="com.example.dndlist.Fragment.CharacterFragments.CharacterInventory"
         android:label="fragment_create_chatacter_inventory"
-        tools:layout="@layout/fragment_create_chatacter_inventory" >
-        <action
-            android:id="@+id/action_createChatacterInventory_to_createCharactersAttactAndCasts"
-            app:destination="@id/createCharactersAttactAndCasts" />
-    </fragment>
+        tools:layout="@layout/fragment_character_inventory" />
     <fragment
-        android:id="@+id/createCharactersAttactAndCasts"
-        android:name="com.example.dndlist.CreateCharactersAttactAndCasts"
+        android:id="@+id/charactersAttactAndCasts"
+        android:name="com.example.dndlist.Fragment.CharacterFragments.CharacterAttackAndCasts"
         android:label="fragment_create_characters_attact_and_casts"
-        tools:layout="@layout/fragment_create_characters_attact_and_casts" />
+        tools:layout="@layout/fragment_character_attack_and_casts" />
+    <fragment
+        android:id="@+id/characterAbout"
+        android:name="com.example.dndlist.Fragment.CharacterFragments.CharacterAbout"
+        android:label="fragment_character_about"
+        tools:layout="@layout/fragment_character_about" />
+    <fragment
+        android:id="@+id/characterStory"
+        android:name="com.example.dndlist.Fragment.CharacterFragments.CharacterStory"
+        android:label="fragment_character_story"
+        tools:layout="@layout/fragment_character_story" />
 </navigation>
