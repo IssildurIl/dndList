@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.FragmentInFragment.ModificatorsCharList">
+    tools:context=".Fragment.VIewPagerFragment.CharactersCharList">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -19,9 +19,9 @@
             android:id="@+id/str"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="59dp"
             android:layout_marginEnd="10dp"
-            android:hint="Мод.Силы"
+            android:hint="Сила"
             app:layout_constraintEnd_toStartOf="@+id/dex"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,7 +42,7 @@
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="Мод.Лвк"
+            android:hint="Ловкость"
             app:layout_constraintEnd_toStartOf="@+id/body"
             app:layout_constraintStart_toEndOf="@+id/str"
             app:layout_constraintTop_toTopOf="parent">
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +62,7 @@
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:hint="Мод.Тело"
+            android:hint="Тело"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/dex"
             app:layout_constraintTop_toTopOf="parent">
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +92,7 @@
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="Мод.Инт"
+            android:hint="Интеллект"
             app:layout_constraintEnd_toStartOf="@+id/wisd"
             app:layout_constraintStart_toEndOf="@+id/charis"
             app:layout_constraintTop_toTopOf="parent">
@@ -102,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +112,7 @@
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
-            android:hint="Мод.Хар"
+            android:hint="Харизма"
             app:layout_constraintEnd_toStartOf="@+id/intel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -122,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,7 +132,7 @@
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:hint="Мод.Мудр"
+            android:hint="Мудрость"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/intel"
             app:layout_constraintTop_toTopOf="parent">
@@ -142,8 +142,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

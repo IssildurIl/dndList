@@ -1,7 +1,6 @@
 package com.example.dndlist.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.dndlist.Fragment.FragmentInFragment.CharactersCharList;
-import com.example.dndlist.Fragment.FragmentInFragment.ExtraStatsCharList;
-import com.example.dndlist.Fragment.FragmentInFragment.ModificatorsCharList;
-import com.example.dndlist.Fragment.FragmentInFragment.SaveDropsCharList;
+import com.example.dndlist.Fragment.VIewPagerFragment.CharactersCharList;
+import com.example.dndlist.Fragment.VIewPagerFragment.ExtraStatsCharList;
+import com.example.dndlist.Fragment.VIewPagerFragment.ModificatorsCharList;
+import com.example.dndlist.Fragment.VIewPagerFragment.SaveDropsCharList;
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
 import com.example.dndlist.utils.FragmentAdaptor.FragmentAdaptor;
@@ -26,15 +25,15 @@ import com.google.android.material.tabs.TabLayout;
 
 public class CreateCharacter extends Fragment {
     private final static String TAG = "CreateCharacter";
-    TabLayout charsAndModsTabLayout,saveAndStatTabLayout;
-    ViewPager vp,vp1;
+    TabLayout charsAndModsTabLayout, saveAndStatTabLayout;
+    ViewPager vp, vp1;
     View customFragment;
-    public static int odd = 0 ;
-    EditText name, lvl, race, hptext, actext ,initext ,speedtext,xptext;
+    public static int odd = 0;
+    EditText name, race, hptext, actext, initext, speedtext, xptext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
     }
 
@@ -108,22 +107,21 @@ public class CreateCharacter extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
-        view.findViewById(R.id.goToInventory).setOnClickListener(v2 -> navController.navigate(R.id.go_to_charactersInventory));
         iniView(view);
         checkLength(name);
         checkLength(race);
-        checkLength(lvl);
+        //checkLength(lvl);
         view.findViewById(R.id.saveCharBtn).setOnClickListener(view1 -> {
             Character character = new Character();
             character.setName(name.getText().toString());
-            if (name.length() == 0 || race.length() == 0 || lvl.length() == 0) {
+            if (name.length() == 0 || race.length() == 0 /*|| lvl.length() == 0*/) {
                 return;
             }
             Bundle bundle = new Bundle();
             bundle.putString("arg1", character.getName());
             bundle.putString("arg2", character.getRace());
             bundle.putInt("arg3", character.getLvl());
-            navController.navigate(R.id.go_to_chooseCharacter, bundle);
+            //navController.navigate(R.id.go_to_chooseCharacter, bundle);
         });
 
         view.findViewById(R.id.redCharBtn).setOnClickListener(view2 ->{
@@ -134,7 +132,7 @@ public class CreateCharacter extends Fragment {
 
     public void redaction(boolean bool){
         name.setEnabled(bool);
-        lvl.setEnabled(bool);
+        //lvl.setEnabled(bool);
         race.setEnabled(bool);
         hptext.setEnabled(bool);
         actext.setEnabled(bool);
@@ -148,12 +146,7 @@ public class CreateCharacter extends Fragment {
     public void iniView(View view){
         name = view.findViewById(R.id.charNameView);
         race = view.findViewById(R.id.charRaceView);
-        lvl = view.findViewById(R.id.charLvlView);
-        hptext = view.findViewById(R.id.hptext);
-        actext = view.findViewById(R.id.actext);
-        initext = view.findViewById(R.id.initiativeTxt);
-        speedtext = view.findViewById(R.id.speedTxt);
-        xptext = view.findViewById(R.id.xptext);
+
     }
 
     public void checkLength(EditText et){

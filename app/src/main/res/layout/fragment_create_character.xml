@@ -8,121 +8,6 @@
     android:id="@+id/fragment_createCharacter">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/initiative"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:hint="@string/initiative"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="@+id/ac"
-        app:layout_constraintEnd_toStartOf="@+id/xp"
-        app:layout_constraintStart_toEndOf="@+id/hp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/initiativeTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/speed"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="@string/speed"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toBottomOf="@+id/initiative"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/initiative">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/speedTxt"
-            android:layout_width="match_parent"
-            android:inputType="number"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/hp"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:hint="@string/hphint"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/ac"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headCharList">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/hptext"
-            android:layout_width="match_parent"
-            android:inputType="number"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/xp"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:hint="@string/xphint"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/speed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headCharList">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/xptext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ac"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="@string/achint"
-        app:errorEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/charsAndMods"
-        app:layout_constraintEnd_toStartOf="@+id/initiative"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/actext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headCharList"
         android:layout_width="match_parent"
@@ -132,24 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/goToInventory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_media_next"
-            app:layout_constraintEnd_toStartOf="@+id/saveCharBtn"
-            app:layout_constraintStart_toEndOf="@+id/charNameViewHint"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/saveCharBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
             android:src="@drawable/ic_baseline_save_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/charNameViewHint"
@@ -170,26 +47,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/charLvlViewHint"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:hint="Lvl"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/charRaceViewHint">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/charLvlView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:maxLength="2"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="220dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/charRaceViewHint"
@@ -214,6 +71,8 @@
             android:id="@+id/redCharBtn"
             android:layout_width="44dp"
             android:layout_height="44dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="40dp"
             android:src="@drawable/ic_baseline_edit_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saveCharBtn" />

@@ -1,40 +1,34 @@
 package com.example.dndlist.Fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
-
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
-import com.example.dndlist.utils.RecycleView.ExampleItem;
 import com.example.dndlist.utils.RecycleView.RecycleViewAdaptor;
 
 import java.util.ArrayList;
 
-public class ChooseCharacter extends Fragment {
+public class CharactersMenu extends Fragment {
 
     RecyclerView mRecyclerView;
     private ArrayList<Character> mExampleList;
     private RecycleViewAdaptor mAdapter;
-    public int position=0;
-    public ChooseCharacter() {
+    public int position = 0;
+    NavController navController;
+
+
+    public CharactersMenu() {
     }
 
 
@@ -43,6 +37,7 @@ public class ChooseCharacter extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,14 +70,15 @@ public class ChooseCharacter extends Fragment {
             mExampleList.add(position, character);
             mAdapter.notifyItemInserted(position);
         }
-        NavController navController = Navigation.findNavController(view);
-        view.findViewById(R.id.fab).setOnClickListener(v -> navController.navigate(R.id.go_to_createCharacter));
+        navController = Navigation.findNavController(view);
+        view.findViewById(R.id.fab).setOnClickListener(v -> navController.navigate(R.id.action_charactersMenu_to_createCharacterBasicInfo));
 
         mAdapter.setOnItemClickListener(new RecycleViewAdaptor.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                navController.navigate(R.id.go_to_createCharacter);
+                //navController.navigate(R.id.go_to_createCharacter);
             }
+
             @Override
             public void onDeleteClick(int position) {
                 removeItem(position);

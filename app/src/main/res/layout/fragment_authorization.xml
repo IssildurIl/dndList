@@ -4,102 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     tools:context=".Fragment.Authorization">
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mailField"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/primaryColor"
         android:hint="@string/mail_hint"
+        android:textColorHint="@color/white"
         app:errorEnabled="true"
+        app:boxStrokeColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/passwordField"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/mailFieldTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="220dp" />
+            android:background="@color/primaryColor"
+            android:singleLine="true"
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/primaryColor"
         android:hint="@string/pass_hint"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/white"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/valid_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/mailField">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordFieldTxt"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="260dp" />
-
+            android:layout_height="match_parent"
+            android:background="@color/primaryColor"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:layout_marginStart="24dp"
         android:id="@+id/valid_btn"
-        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
         android:text="@string/valid_btn"
+        app:layout_constraintBottom_toTopOf="@+id/reg_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordField" />
 
     <Button
-        android:id="@+id/forgot_pass_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="54dp"
-        android:text="@string/forget_pass_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_btn" />
-    <Button
         android:id="@+id/reg_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/secondaryDarkColor"
         android:text="@string/reg_hint_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valid_btn" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/google_sign_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="54dp"
-        android:text="@string/valid_google_btn"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="64dp"
+        android:src="@drawable/dnd_logo"
+        app:layout_constraintBottom_toTopOf="@+id/mailField"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgot_pass_btn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.FragmentInFragment.SaveDropsCharList">
-
+    tools:context=".Fragment.VIewPagerFragment.ModificatorsCharList">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -19,10 +18,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/str"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
-            android:hint="Сила"
+            android:hint="Мод.Силы"
             app:layout_constraintEnd_toStartOf="@+id/dex"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -39,11 +38,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dex"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="Лвк"
+            android:hint="Мод.Лвк"
             app:layout_constraintEnd_toStartOf="@+id/body"
             app:layout_constraintStart_toEndOf="@+id/str"
             app:layout_constraintTop_toTopOf="parent">
@@ -53,18 +52,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/body"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="Тело"
+            android:hint="Мод.Тело"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/dex"
             app:layout_constraintTop_toTopOf="parent">
@@ -78,30 +76,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <RadioButton
-            android:id="@+id/rbStr"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/str"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/rbDex"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/dex"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/rbBody"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/body"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -114,11 +88,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/intel"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="Инт"
+            android:hint="Мод.Инт"
             app:layout_constraintEnd_toStartOf="@+id/wisd"
             app:layout_constraintStart_toEndOf="@+id/charis"
             app:layout_constraintTop_toTopOf="parent">
@@ -135,10 +109,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/charis"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
-            android:hint="Хар"
+            android:hint="Мод.Хар"
             app:layout_constraintEnd_toStartOf="@+id/intel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -155,11 +129,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/wisd"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="Мудр"
+            android:hint="Мод.Мудр"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/intel"
             app:layout_constraintTop_toTopOf="parent">
@@ -172,30 +145,5 @@
                 android:maxLength="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <RadioButton
-            android:id="@+id/rbIntel"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/intel"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/rbChar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/charis"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/rbWisd"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/wisd"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,36 +13,24 @@
             android:id="@+id/go_to_reg"
             app:destination="@id/registration" />
         <action
-            android:id="@+id/go_to_chars"
-            app:destination="@id/chooseCharacter" />
-        <action
             android:id="@+id/go_to_forgetPas"
             app:destination="@id/forgetPassword" />
         <action
-            android:id="@+id/go_to_chars_google"
-            app:destination="@id/chooseCharacter" />
+            android:id="@+id/action_authorization_to_charactersMenu"
+            app:destination="@id/charactersMenu" />
     </fragment>
     <fragment
         android:id="@+id/registration"
         android:name="com.example.dndlist.Fragment.Registration"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
-        <action
-            android:id="@+id/go_to_chars"
-            app:destination="@id/chooseCharacter" />
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registration_to_authorization2"
             app:destination="@id/authorization" />
-
-    </fragment>
-    <fragment
-        android:id="@+id/chooseCharacter"
-        android:name="com.example.dndlist.Fragment.ChooseCharacter"
-        android:label="fragment_choose_character"
-        tools:layout="@layout/fragment_choose_character" >
         <action
-            android:id="@+id/go_to_createCharacter"
-            app:destination="@id/createCharacter" />
+            android:id="@+id/action_registration_to_charactersMenu"
+            app:destination="@id/charactersMenu" />
+
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"
@@ -57,10 +45,7 @@
         android:id="@+id/createCharacter"
         android:name="com.example.dndlist.Fragment.CreateCharacter"
         android:label="fragment_create_character"
-        tools:layout="@layout/fragment_create_character" >
-        <action
-            android:id="@+id/go_to_chooseCharacter"
-            app:destination="@id/chooseCharacter" />
+        tools:layout="@layout/fragment_create_character">
         <action
             android:id="@+id/go_to_charactersInventory"
             app:destination="@id/charactersInventory" />
@@ -70,4 +55,24 @@
         android:name="com.example.dndlist.CharactersInventory"
         android:label="fragment_characters_inventory"
         tools:layout="@layout/fragment_characters_inventory" />
+    <fragment
+        android:id="@+id/createCharacterBasicInfo"
+        android:name="com.example.dndlist.Fragment.CreateCharacterFragments.CreateCharacterBasicInfo"
+        android:label="CreateCharacterBasicInfo">
+        <action
+            android:id="@+id/action_createCharacterBasicInfo_to_createCharacterAboutInfo"
+            app:destination="@id/createCharacterAboutInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCharacterAboutInfo"
+        android:name="com.example.dndlist.Fragment.CreateCharacterFragments.CreateCharacterAboutInfo"
+        android:label="CreateCharacterAboutInfo" />
+    <fragment
+        android:id="@+id/charactersMenu"
+        android:name="com.example.dndlist.Fragment.CharactersMenu"
+        android:label="CharactersMenu">
+        <action
+            android:id="@+id/action_charactersMenu_to_createCharacterBasicInfo"
+            app:destination="@id/createCharacterBasicInfo" />
+    </fragment>
 </navigation>

@@ -1,6 +1,10 @@
-package com.example.dndlist.Fragment.FragmentInFragment;
+package com.example.dndlist.Fragment.VIewPagerFragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,22 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
-
 import com.example.dndlist.R;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class SaveDropsCharList extends Fragment {
 
-    RadioButton rbStr,rbDex,rbBody,rbIntel,rbChar, rbWisdom;
+    RadioButton rbStr, rbDex, rbBody, rbIntel, rbChar, rbWisdom;
+
     int numberOfChecked = 0;
+
     public SaveDropsCharList() {
 
 
@@ -38,9 +37,8 @@ public class SaveDropsCharList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_save_drops_char_list, container, false);
 
-        return view;
+        return inflater.inflate(R.layout.view_pager_save_drops, container, false);
     }
 
     @Override
