@@ -82,7 +82,7 @@ public class CreateCharacterAboutInfo extends Fragment {
             Log.d(TAG, "onPostExecute: " + character);
             Bundle bundle = new Bundle();
             bundle.putSerializable("Character", character);
-            navController.navigate(R.id.action_createCharacterBasicInfo_to_createCharacterAboutInfo, bundle);
+            navController.navigate(R.id.action_createCharacterAboutInfo_to_characterStats, bundle);
         }
     }
 }
