@@ -1,15 +1,14 @@
 package com.example.dndlist.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.dndlist.R;
 
@@ -32,6 +31,6 @@ public class ForgetPassword extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
-        view.findViewById(R.id.valid_btn).setOnClickListener(view1 -> navController.navigate(R.id.go_to_authorization));
+        //view.findViewById(R.id.valid_btn).setOnClickListener(view1 -> navController.navigate(R.id.go_to_authorization));
     }
 }

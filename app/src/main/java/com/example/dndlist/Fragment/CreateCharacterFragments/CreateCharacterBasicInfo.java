@@ -84,9 +84,8 @@ public class CreateCharacterBasicInfo extends Fragment {
         @Override
         protected void onPostExecute(Character character) {
             Log.d(TAG, "onPostExecute: " + character);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("Character", character);
-            navController.navigate(R.id.action_createCharacterBasicInfo_to_createCharacterAboutInfo, bundle);
+            DbUtil.setCurrentCharacter(character);
+            navController.navigate(R.id.action_createCharacterBasicInfo_to_createCharacterAboutInfo);
         }
     }
 

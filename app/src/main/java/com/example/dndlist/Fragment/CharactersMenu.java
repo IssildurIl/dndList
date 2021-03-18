@@ -54,7 +54,7 @@ public class CharactersMenu extends Fragment {
 
         navController = Navigation.findNavController(view);
         view.findViewById(R.id.fab).setOnClickListener(v -> navController.navigate(R.id.action_charactersMenu_to_createCharacterBasicInfo));
-
+        getActivity().findViewById(R.id.bottom_navigation).setVisibility(View.GONE);
         DbUtil.init(getContext());
         setUpRecyclerView(view);
     }

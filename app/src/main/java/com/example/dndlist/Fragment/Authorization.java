@@ -52,7 +52,7 @@ public class Authorization extends Fragment {
             user.setPassword(psw_field.getEditText().getText().toString());
             new LogInTask().execute(user);
         });
-
+        getActivity().findViewById(R.id.bottom_navigation).setVisibility(View.GONE);
         new CheckLogInTask().execute();
         view.findViewById(R.id.reg_btn).setOnClickListener(view1 -> navController.navigate(R.id.go_to_reg));
     }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
+import com.example.dndlist.repository.DbUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,11 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterViewHold
     private static final String TAG = CharacterListAdapter.class.getName();
 
     private final List<Character> characterList;
-    NavController controller;
+    NavController navController;
 
     public CharacterListAdapter(List<Character> mDataSet, NavController controller) {
         this.characterList = new ArrayList<>(mDataSet);
-        this.controller = controller;
+        this.navController = controller;
     }
 
     @NonNull
@@ -46,6 +47,11 @@ public class CharacterListAdapter extends RecyclerView.Adapter<CharacterViewHold
         holder.setCharacterName(character.getName());
         holder.setCharacterLvl(character.getLvl() + " lvl");
         holder.setCharacterRace(character.getRace());
+
+        holder.itemView.setOnClickListener(v -> {
+            DbUtil.setCurrentCharacter(character);
+            navController.navigate(R.id.action_charactersMenu_to_charactersStats);
+        });
     }
 
     @Override
