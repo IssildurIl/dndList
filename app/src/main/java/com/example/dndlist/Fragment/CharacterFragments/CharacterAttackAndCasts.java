@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import com.example.dndlist.R;
 import com.example.dndlist.model.Character;
@@ -22,7 +20,6 @@ public class CharacterAttackAndCasts extends Fragment {
 
     TextView name, race;
     Character character;
-    NavController navController;
 
 
     public CharacterAttackAndCasts() {
@@ -40,9 +37,7 @@ public class CharacterAttackAndCasts extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         DbUtil.init(getContext());
-
         getActivity().findViewById(R.id.bottom_navigation).setVisibility(View.VISIBLE);
-        navController = Navigation.findNavController(view);
         name = view.findViewById(R.id.tvCharacterNameCastsFragment);
         race = view.findViewById(R.id.tvCharacterRaceCastsFragment);
         character = DbUtil.getCurrentCharacter();
