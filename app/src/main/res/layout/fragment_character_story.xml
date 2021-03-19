@@ -1,14 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment.CharacterFragments.CharacterStory">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/primaryDarkColor"
+        tools:context=".Fragment.CreateCharacterFragments.CreateCharacterBasicInfo">
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/tvCharacterRaceStoryFragment"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Расса персонажа"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterNameStoryFragment" />
+
+        <TextView
+            android:id="@+id/tvCharacterNameStoryFragment"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Имя персонажа"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvCharacterRaceStoryFragment"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterRaceStoryFragment">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Данные о персонаже"
+                android:textColor="@color/secondaryDarkColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etCharacterStoryIdeals"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:enabled="false"
+                android:gravity="start|top"
+                android:hint="Идеалы"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/secondaryDarkColor"
+                app:layout_constraintBottom_toTopOf="@+id/etCharacterStoryPersonalityTraits"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <EditText
+                android:id="@+id/etCharacterStoryPersonalityTraits"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:enabled="false"
+                android:gravity="start|top"
+                android:hint="Черты характера"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/secondaryDarkColor"
+                app:layout_constraintBottom_toTopOf="@+id/etCharacterStoryBonds"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCharacterStoryIdeals" />
+
+            <EditText
+                android:id="@+id/etCharacterStoryBonds"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:enabled="false"
+                android:gravity="start|top"
+                android:hint="Привязанности"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/secondaryDarkColor"
+                app:layout_constraintBottom_toTopOf="@+id/etCharacterStoryFlaws"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCharacterStoryPersonalityTraits" />
+
+            <EditText
+                android:id="@+id/etCharacterStoryFlaws"
+                android:layout_width="0dp"
+
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="64dp"
+                android:ems="10"
+                android:enabled="false"
+                android:gravity="start|top"
+                android:hint="Слабости"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/secondaryDarkColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCharacterStoryBonds" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateCharacterAboutComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?android:attr/textCheckMark" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
