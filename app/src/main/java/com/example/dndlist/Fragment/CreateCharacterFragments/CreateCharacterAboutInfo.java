@@ -48,7 +48,7 @@ public class CreateCharacterAboutInfo extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Character character = (Character) getArguments().getSerializable("Character");
+        Character character = DbUtil.getCurrentCharacter();
         Log.d(TAG, "onViewCreated: " + character.toString());
         DbUtil.init(getContext());
         navController = Navigation.findNavController(view);
@@ -80,9 +80,8 @@ public class CreateCharacterAboutInfo extends Fragment {
         @Override
         protected void onPostExecute(Character character) {
             Log.d(TAG, "onPostExecute: " + character);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("Character", character);
-            navController.navigate(R.id.action_createCharacterAboutInfo_to_characterStats, bundle);
+            DbUtil.setCurrentCharacter(character);
+            navController.navigate(R.id.action_createCharacterAboutInfo_to_characterStats);
         }
     }
 }
